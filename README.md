@@ -6,7 +6,7 @@ IMGML is a service for converting JPEG image files to an imageless HTML file, us
 Do what you want with it. Let me know if you find any cool application for this.
 
 
-##Example HTML
+### Example HTML
 
 ```html
 <row>
