@@ -28,19 +28,22 @@ class ImageController extends Controller
      * @return Inertia\Inertia
      */
     public function upload(Request $request)
-    {
-        $path = $request->file('file')->store('public');
-        $path = str_replace('public', 'storage', $path);
+{
+    $uploadedFile = $request->file('file');
+    $filename = $uploadedFile->hashName();
+    $uploadedFile->storeAs('', $filename, 'public');
 
-        Image::load($path)
+    $fullPath = storage_path('app/public/' . $filename);
+
+    Image::load($fullPath)
         ->fit(Manipulations::FIT_MAX, 200, 200)
         ->save();
 
-        return Inertia::render('Home', [
-            'uploadedImage' => RenderImageService::render($path),
-            'path' => $path
-        ]);
-    }
+    return Inertia::render('Home', [
+        'uploadedImage' => RenderImageService::render($fullPath),
+        'path' => $filename
+    ]);
+}
 
     /**
      * Download image HTML
