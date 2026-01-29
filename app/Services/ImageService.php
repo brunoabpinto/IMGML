@@ -43,7 +43,7 @@ class ImageService
 
     public function getImageHtml(array $pixels, int $width): string
     {
-        $html = '<style>r{display:flex}hr {width:1px;height:1px;display:inline-block;border:none}</style><r>';
+        $html = '<style>r{display:flex}hr {width:1px;height:1px;display:inline-block;border:none;margin:0}</style><r>';
 
         foreach ($pixels as $key => $pixel) {
             $html .= "<hr color={$pixel}>";
