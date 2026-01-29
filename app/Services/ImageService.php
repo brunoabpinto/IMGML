@@ -61,7 +61,7 @@ class ImageService
         HTML;
 
         foreach ($pixels as $key => $pixel) {
-            $html .= "<hr style=\"background:{$pixel}\">";
+            $html .= "<hr style=background:{$pixel}>";
             if ($key % $width == 0) {
                 $html .= "</r>\n<r>";
             }
