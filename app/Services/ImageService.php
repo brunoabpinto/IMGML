@@ -16,13 +16,12 @@ class ImageService
             for ($x = 0; $x < $width; $x++) {
                 $color = imagecolorat($resource, $x, $y);
                 $rgbArray = imagecolorsforindex($resource, $color);
-                $hex = sprintf('#%02x%02x%02x', $rgbArray['red'], $rgbArray['green'], $rgbArray['blue']);
-                $pixels[] = $hex;
+                $pixels[] = sprintf('#%02x%02x%02x', $rgbArray['red'], $rgbArray['green'], $rgbArray['blue']);
             }
         }
 
         if (file_exists($image)) {
-            unlink($image);
+            @unlink($image);
         }
 
         return $this->getImageHtml($pixels, $width);
