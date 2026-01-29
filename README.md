@@ -1,5 +1,7 @@
 # IMGML
 
+![Screenshot](screenshot.png)
+
 Convert images into pure HTML. Each pixel becomes a 1x1 `<hr>` element with a matching background color, creating a faithful reproduction of your image using nothing but HTML elements.
 
 ## How It Works
